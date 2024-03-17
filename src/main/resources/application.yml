@@ -1,1 +1,9 @@
+spring:
+  application:
+    name: inf-sys-server
 
+  datasource:
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    database: postgresql

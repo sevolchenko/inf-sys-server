@@ -37,7 +37,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
 
     // security
-    implementation("org.springframework.boot:spring-boot-starter-security")
+    // implementation("org.springframework.boot:spring-boot-starter-security")
 
     // springdoc
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:${versions["springdoc"]}")

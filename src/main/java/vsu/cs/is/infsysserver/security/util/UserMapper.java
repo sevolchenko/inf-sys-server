@@ -1,0 +1,15 @@
+package vsu.cs.is.infsysserver.security.util;
+
+import org.springframework.security.core.userdetails.UserDetails;
+import vsu.cs.is.infsysserver.security.entity.UserDetailsImpl;
+import vsu.cs.is.infsysserver.security.entity.temp.User;
+
+public class UserMapper {
+
+    public static UserDetails mapUserToUserDetails(User user){
+        return UserDetailsImpl.builder()
+                .email(user.getEmail())
+                .roles(user.getRoles())
+                .build();
+    }
+}

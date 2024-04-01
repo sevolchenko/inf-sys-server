@@ -37,7 +37,16 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
 
     // security
-    // implementation("org.springframework.boot:spring-boot-starter-security")
+    implementation("org.springframework.boot:spring-boot-starter-security")
+//    implementation("org.springframework.boot:spring-security-config")
+//    implementation(group:"org.springframework.security", name: 'spring-security-config', version: '3.2.0.RELEASE')
+    implementation("com.unboundid:unboundid-ldapsdk:1.1.3")
+    implementation("io.jsonwebtoken:jjwt:0.12.0")
+    implementation("io.jsonwebtoken:jjwt-api:0.11.5")
+    implementation("io.jsonwebtoken:jjwt-impl:0.11.5")
+    implementation("io.jsonwebtoken:jjwt-jackson:0.11.5")
+
+
 
     // springdoc
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:${versions["springdoc"]}")

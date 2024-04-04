@@ -1,12 +1,9 @@
 spring:
 
   datasource:
-    url: jdbc:postgresql://localhost:5437/db
-    username: user
-    password: pass
-
+    url: jdbc:postgresql://localhost:5433/inf-sys
+    username: inf-sys-server
+    password: ${POSTGRES_PASSWORD}
 
   jpa:
-    hibernate:
-      ddl-auto: update
     show-sql: true

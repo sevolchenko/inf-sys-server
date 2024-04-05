@@ -18,7 +18,6 @@ import vsu.cs.is.infsysserver.security.entity.temp.UserRepository;
 import vsu.cs.is.infsysserver.security.entity.token.Token;
 import vsu.cs.is.infsysserver.security.entity.token.TokenRepository;
 import vsu.cs.is.infsysserver.security.entity.token.TokenType;
-import vsu.cs.is.infsysserver.security.exceptions.AppError;
 import vsu.cs.is.infsysserver.security.util.UserMapper;
 
 import java.io.IOException;
@@ -51,7 +50,7 @@ public class AuthenticationService {
 
     public ResponseEntity<?> authenticate(AuthenticationRequest request) {
         if (!ldapAuthentication.isConnectionSuccess(request)){
-            return new ResponseEntity<>(new AppError(HttpStatus.UNAUTHORIZED.value(), "Неправильный логин или пароль"), HttpStatus.UNAUTHORIZED);
+            return new ResponseEntity<>("Неправильный логин или пароль", HttpStatus.UNAUTHORIZED);
         }
 
         authenticationManager.authenticate(
@@ -99,14 +98,12 @@ public class AuthenticationService {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException {
-        final String authHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
-        final String refreshToken;
-        final String userEmail;
+        String authHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
             return;
         }
-        refreshToken = authHeader.substring(7);
-        userEmail = jwtService.extractUsername(refreshToken);
+        String refreshToken = authHeader.substring(7);
+        String userEmail = jwtService.extractUsername(refreshToken);
         if (userEmail != null) {
             var user = this.repository.findByEmail(userEmail)
                     .orElseThrow();

@@ -5,12 +5,14 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.SourceType;
 import vsu.cs.is.infsysserver.news.adapter.rest.dto.request.NewsUpdateRequest;
 
 import java.time.LocalDateTime;
@@ -25,8 +27,12 @@ public class News {
 
     @Id
     @GeneratedValue(
-            strategy = GenerationType.IDENTITY,
+            strategy = GenerationType.SEQUENCE,
             generator = "news_sequence"
+    )
+    @SequenceGenerator(
+            name = "news_sequence",
+            allocationSize = 1
     )
     private Long id;
 
@@ -39,7 +45,7 @@ public class News {
     @Column(name = "image_link", nullable = false)
     private String imageLink;
 
-    @CreationTimestamp
+    @CreationTimestamp(source = SourceType.DB)
     @Column(name = "publication_at")
     private LocalDateTime publicationAt;
 

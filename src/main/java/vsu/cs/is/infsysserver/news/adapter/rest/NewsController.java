@@ -39,19 +39,15 @@ public class NewsController implements NewsAPI {
     }
 
     @PostMapping
-    public ResponseEntity<NewsResponse> createNews(
-            @RequestBody NewsCreateRequest createRequest
-    ) {
+    public ResponseEntity<NewsResponse> createNews(@RequestBody NewsCreateRequest createRequest) {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(newsService.createNews(createRequest));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<NewsResponse> updateNewsById(
-            @PathVariable Long id,
-            @RequestBody NewsUpdateRequest updateRequest
-    ) {
+    public ResponseEntity<NewsResponse> updateNewsById(@PathVariable Long id,
+                                                       @RequestBody NewsUpdateRequest updateRequest) {
         return ok(newsService.updateNewsById(id, updateRequest));
     }
 

@@ -58,9 +58,7 @@ public interface NewsAPI {
             )
     })
     @Operation(summary = "Отдает новость по идентификатору")
-    ResponseEntity<NewsResponse> getNewsById(
-            @Parameter(description = "Идентификатор новости") Long id
-    );
+    ResponseEntity<NewsResponse> getNewsById(@Parameter(description = "Идентификатор новости") Long id);
 
     @ApiResponses(value = {
             @ApiResponse(
@@ -75,9 +73,7 @@ public interface NewsAPI {
             )
     })
     @Operation(summary = "Создает новость по переданной дто")
-    ResponseEntity<NewsResponse> createNews(
-            @RequestBody(description = "DTO для создания новости") NewsCreateRequest createRequest
-    );
+    ResponseEntity<NewsResponse> createNews(@RequestBody(description = "DTO для создания новости") NewsCreateRequest createRequest);
 
     @ApiResponses(value = {
             @ApiResponse(
@@ -102,10 +98,8 @@ public interface NewsAPI {
             )
     })
     @Operation(summary = "Обновляет новость по переданному идентификатору")
-    ResponseEntity<NewsResponse> updateNewsById(
-            @Parameter(description = "id обновляемой новости") Long id,
-            @RequestBody(description = "DTO с обновленными параметрами") NewsUpdateRequest updateRequest
-    );
+    ResponseEntity<NewsResponse> updateNewsById(@Parameter(description = "id обновляемой новости") Long id,
+                                                @RequestBody(description = "DTO с обновленными параметрами") NewsUpdateRequest updateRequest);
 
     @ApiResponses(value = {
             @ApiResponse(

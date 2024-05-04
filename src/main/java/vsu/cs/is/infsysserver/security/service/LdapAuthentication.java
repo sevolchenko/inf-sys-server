@@ -18,7 +18,7 @@ public class LdapAuthentication {
     public boolean isConnectionSuccess(AuthenticationRequest authenticationRequest){
         return true;
 
-//        String username = authenticationRequest.getEmail()  + emailHost;
+//        String username = authenticationRequest.getEmail() + "@" + emailHost;
 //        String password = authenticationRequest.getPassword();
 //
 //        try {

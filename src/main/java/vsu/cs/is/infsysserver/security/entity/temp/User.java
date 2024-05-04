@@ -28,7 +28,7 @@ public class User {
     private String email;
 
     @Enumerated(EnumType.STRING)
-    private Role roles;
+    private Role role;
 
     @OneToMany(mappedBy = "user")
     private List<Token> tokens;

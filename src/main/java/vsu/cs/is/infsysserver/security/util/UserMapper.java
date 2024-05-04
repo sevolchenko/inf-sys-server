@@ -9,7 +9,7 @@ public class UserMapper {
     public static UserDetails mapUserToUserDetails(User user){
         return UserDetailsImpl.builder()
                 .email(user.getEmail())
-                .roles(user.getRoles())
+                .role(user.getRole())
                 .build();
     }
 }

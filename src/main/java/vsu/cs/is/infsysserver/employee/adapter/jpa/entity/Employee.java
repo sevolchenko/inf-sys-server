@@ -8,6 +8,7 @@ import org.hibernate.proxy.HibernateProxy;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 
@@ -36,6 +37,7 @@ public class Employee implements Serializable {
 
     private String plan;
     private boolean hasLessons;
+    private LocalDateTime createdAt;
 //
 //    @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY)
 //    @JsonIgnoreProperties(value = { "employee", "accessModes" }, allowSetters = true)

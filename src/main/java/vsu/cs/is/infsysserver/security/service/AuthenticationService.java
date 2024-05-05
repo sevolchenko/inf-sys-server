@@ -34,7 +34,7 @@ public class AuthenticationService {
     public AuthenticationResponse register(RegisterRequest request) {
         var user = User.builder()
                 .email(request.getEmail())
-                .roles(request.getRole())
+                .role(request.getRole())
                 .build();
         var savedUser = repository.save(user);
         var userDetails = UserMapper.mapUserToUserDetails(savedUser);

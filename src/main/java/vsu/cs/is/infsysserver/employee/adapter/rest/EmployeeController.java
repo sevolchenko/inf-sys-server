@@ -15,6 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/employees")
 @RequiredArgsConstructor
+@CrossOrigin
 public class EmployeeController implements EmployeeApi{
     private final EmployeeServiceMock employeeService;
 

@@ -16,7 +16,7 @@ import vsu.cs.is.infsysserver.security.service.AuthenticationService;
 import java.io.IOException;
 
 @RestController
-@RequestMapping("/api/v1/auth")
+@RequestMapping("/api")
 @RequiredArgsConstructor
 public class AuthenticationController {
 

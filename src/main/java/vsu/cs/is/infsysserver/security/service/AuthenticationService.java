@@ -55,11 +55,11 @@ public class AuthenticationService {
 
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                        request.getEmail(),
+                        request.getUsername(),
                         request.getPassword()
                 )
         );
-        var user = repository.findByEmail(request.getEmail())
+        var user = repository.findByEmail(request.getUsername())
                 .orElseThrow();
         var userDetail = UserMapper.mapUserToUserDetails(user);
         var jwtToken = jwtService.generateToken(userDetail);

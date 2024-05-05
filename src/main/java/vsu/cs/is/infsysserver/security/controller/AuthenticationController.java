@@ -4,10 +4,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import vsu.cs.is.infsysserver.security.entity.dto.request.AuthenticationRequest;
 import vsu.cs.is.infsysserver.security.entity.dto.request.RegisterRequest;
 import vsu.cs.is.infsysserver.security.entity.dto.response.AuthenticationResponse;
@@ -18,6 +15,7 @@ import java.io.IOException;
 @RestController
 @RequestMapping("/api")
 @RequiredArgsConstructor
+@CrossOrigin
 public class AuthenticationController {
 
     private final AuthenticationService service;

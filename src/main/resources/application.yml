@@ -18,4 +18,4 @@ application:
     ldap:
       host: csfs.cs.vsu.ru
       port: 389
-      email-host: @cs.vsu.ru
+      email-host: cs.vsu.ru

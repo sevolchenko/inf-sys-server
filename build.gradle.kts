@@ -86,7 +86,6 @@ tasks.test {
 
 tasks.withType<Checkstyle>().configureEach {
     reports {
-
         isShowViolations = true
     }
 }

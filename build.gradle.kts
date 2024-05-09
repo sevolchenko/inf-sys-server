@@ -65,6 +65,7 @@ dependencies {
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     annotationProcessor("org.projectlombok:lombok")
     compileOnly("org.projectlombok:lombok")
+    annotationProcessor("org.mapstruct:mapstruct-processor:${versions["mapstruct"]}")
     implementation("org.mapstruct:mapstruct:${versions["mapstruct"]}")
 
     // testing
@@ -74,7 +75,8 @@ dependencies {
 
 tasks.withType<JavaCompile> {
     options.compilerArgs = listOf(
-        "-Amapstruct.defaultComponentModel=spring"
+        "-Amapstruct.defaultComponentModel=spring",
+        "-parameters"
     )
 }
 
@@ -84,7 +86,6 @@ tasks.test {
 
 tasks.withType<Checkstyle>().configureEach {
     reports {
-
         isShowViolations = true
     }
 }

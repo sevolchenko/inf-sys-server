@@ -53,7 +53,10 @@ public class EventService {
 
     private Event findByIdOrThrow(Long id) {
         return eventRepository.findById(id).orElseThrow(
-                () -> new EntityNotFoundException("По идентификатору: " + id + " не найдено ни одного события")
+                () -> {
+                    var msg = "По идентификатору: " + id + " не найдено ни одного события";
+                    return new EntityNotFoundException(msg);
+                }
         );
     }
 

@@ -1,11 +1,8 @@
+name: Build application
+
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - '/**'
   pull_request:
-    paths:
-      - '/**'
 
 jobs:
   build:
@@ -20,5 +17,5 @@ jobs:
 
       - run: chmod +x gradlew
 
-      - name: Build with Gradle
+      - name: Gradle Build
         run: ./gradlew build

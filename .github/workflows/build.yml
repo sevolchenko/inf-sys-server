@@ -2,10 +2,10 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - *
+      - './**'
   pull_request:
     paths:
-      - *
+      - './**'
 
 jobs:
   build:

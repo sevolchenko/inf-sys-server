@@ -1,0 +1,23 @@
+on:
+  push:
+    paths:
+      - '/**'
+  pull_request:
+    paths:
+      - '/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v2
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - run: chmod +x gradlew
+
+      - name: Build with Gradle
+        run: ./gradlew build
